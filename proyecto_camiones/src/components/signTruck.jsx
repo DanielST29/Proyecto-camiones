@@ -17,7 +17,12 @@ export const TruckSignUp = () => {
     const [carga, setCarga] = useState('')
     const [conductor, setConductor] = useState('')
 
-    const preCamion = {
+    // ESTADOS: (erros and succed)
+
+    const [errors, setErrors] = useState('')
+    const [success, setSuccess] = useState('')
+
+    const preTruck = {
         id: matricula,
         capacity: parseInt(capacidad),
         fuelConsumption: parseInt(cilindraje),
@@ -29,10 +34,26 @@ export const TruckSignUp = () => {
 
 
     const handleSubmit = async (e) => {
-        await addTruck(preCamion)
+        
         e.preventDefault()
 
-        console.log(truckList)
+        if ( matricula && capacidad && cilindraje && carga && conductor){
+
+            if ( truckList.find((truck) => truck.id == preTruck.id)) {
+                setErrors('El camion digitado ya se encuentra registrado')
+            } else {
+                
+                setSuccess('Camion exitosamente registrado!')
+                await addTruck(preTruck)
+                
+                setMatricula('')
+                setCapacidad('')
+                setCilindraje('')
+                setCarga('')
+                setConductor('')
+            }
+
+        } else setErrors('Un campo no se ha completado!')
     }
     
     const handleMatricula = (e) => {
@@ -88,6 +109,14 @@ export const TruckSignUp = () => {
                 />
 
                 <br/>
+
+                {errors && (
+                    <p style={{padding: '1rem', borderRadius: '1rem', background: '#ccc', color: 'red'}}>{errors}</p>
+                )}
+                {success && (
+                    <p style={{padding: '1rem', borderRadius: '1rem', background: 'green',}}>{success}</p>
+                )}
+                
                 <button className="sign_button_inscription" type="submit">Inscribir!</button>
                 <Link to='/'>Mira nuestro catalogo increible</Link>
             </form>   

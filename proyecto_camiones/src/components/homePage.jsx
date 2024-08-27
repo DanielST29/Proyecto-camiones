@@ -2,14 +2,27 @@ import { useState, useContext } from "react";
 import { Link } from 'react-router-dom'
 
 import { trucksContext } from "../context/trucks_context";
+import { TruckPageContext } from "../context/trucks_page_context";
 
 
 
 export const Home = () => {
    
-    const { truckList } = useContext(trucksContext)
+    // GLOBAL STATES
 
-    
+    const { truckList } = useContext(trucksContext)
+    const { handleRedirectionPage } = useContext(TruckPageContext)
+
+    // STATES
+
+    const [idSelected, setId] = useState('')
+
+    const handleSelectId = (id) => {
+        setId(id)
+        
+        handleRedirectionPage(id)
+        console.log(id)
+    }
 
 
     return (
@@ -23,7 +36,10 @@ export const Home = () => {
                         <p>Consumo de gasolina: {truck.fuelConsumption} galones / kilometro</p>
                         <p>Carga actual: {truck.currentLoad}kg</p>
 
-                        <button> Contratar </button>
+                        <Link to='/YourTruck'>
+                            <button onClick={() => handleSelectId(truck.id)}> 
+                                Contratar </button>
+                        </Link>
                     </div>
                 ))}
             </section>
