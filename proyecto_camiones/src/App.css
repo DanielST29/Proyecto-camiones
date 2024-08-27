@@ -1,8 +1,10 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
+  align-items: center;
+  
 }
 
 .logo {
@@ -67,4 +69,42 @@
 
   width: 100%;
   border-bottom: 3px solid chartreuse;
+}
+
+.description {
+  margin: auto;
+  max-width: 500px;
+  font-size: 20px;
+  padding: 3rem;
+}
+
+.truck_inscription {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: start;
+  align-items: center;
+}
+
+form input {
+  font-size: 14px;
+  border-radius: 20px;
+  width: 300px;
+  padding: 20px;
+  cursor: text;
+  transition: border-color 0.25s;
+  border: 1px solid transparent;
+}
+
+form input:hover{
+  border: 1px solid chartreuse; 
+}
+
+.sign_button_inscription {
+  margin-top: -30px;
+  font-size: 18px;
+}
+
+.return_to_homepage :hover {
+  color: azure;
 }
