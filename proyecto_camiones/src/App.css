@@ -54,13 +54,18 @@
 .impressive_truck {
   border-radius: 20px;
   padding: 1rem;
-  background-color: #61dafbaa;
+  background-color: #1a1a1a;
+
   font-size: 18px;
 }
 
 .impressive_truck h3 {
-  color: rgb(27, 27, 119);
+  color: chartreuse;
   
+}
+
+.see_truck_button {
+  color: #646cffaa;
 }
 
 .separator {
@@ -107,4 +112,19 @@ form input:hover{
 
 .return_to_homepage :hover {
   color: azure;
+}
+
+.truck_information_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.truck_information_menu p {
+  font-size: 18px;
+}
+
+b {
+  color: chartreuse;
 }

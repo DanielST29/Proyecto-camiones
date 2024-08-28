@@ -1,2 +1,2 @@
 import { createContext } from "react";
-export const trucksContext = createContext()
+export const trucksContext = createContext()    
