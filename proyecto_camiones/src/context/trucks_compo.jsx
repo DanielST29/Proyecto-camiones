@@ -13,15 +13,22 @@ export const TruckComponent = ( { children }) => {
         setTruckList((prev) => [...prev, object])
     }
     
-    const hireTruck = (objectId) => {
-        let newHiredTruck = truckList.map((truck) => {
-            if ( truck.id == objectId) {
-                return { ...truck, hired: !truck.hired };
-                // return truck.hired = !truck.hired
-            }
-            return truck
-        })
-        setTruckList(newHiredTruck)
+    // const hireTruck = (objectId) => {
+    //     let newHiredTruck = truckList.map((truck) => {
+    //         if ( truck.id == objectId) {
+    //             return { ...truck, hired: !truck.hired };
+    //             // return truck.hired = !truck.hired
+    //         }
+    //         return truck
+    //     })
+    //     setTruckList(newHiredTruck)
+    // }
+    const hireTruck = (id) => {
+        setTruckList((prev) =>
+            prev.map((truck) =>
+                truck.id === id ? { ...truck, hired: !truck.hired } : truck
+            )
+        );
     }
 
     return (

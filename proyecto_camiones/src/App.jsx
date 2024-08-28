@@ -4,7 +4,7 @@ import { Home } from './components/homePage'
 import { LogIn } from './components/logIn'
 import { TruckSignUp } from './components/signTruck'
 import { TruckComponent } from './context/trucks_compo'
-import { TruckPage } from './components/truckPage'
+import { HandleTruckPage } from './components/handleTruckPage'
 import { TruckPageComponent } from './context/trucks_page_compo'
 
 import './App.css'
@@ -20,7 +20,7 @@ function App() {
             <Route path='/SignTruck' element={<TruckSignUp/>}/>
             <Route path='/' element={<Home/>} />
             <Route path='/IniciarSesion' element={<LogIn/>} />
-            <Route path='/YourTruck/:id' element={<TruckPage/>} />
+            <Route path='/YourTruck/:id' element={<HandleTruckPage/>} />
           </Routes>
         </Router>
       </TruckPageComponent>
