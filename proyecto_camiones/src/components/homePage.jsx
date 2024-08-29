@@ -44,10 +44,15 @@ export const Home = () => {
             </section>
             <div className="separator"></div>
             <p className="description">Con mas de 10 años de experiencia en el sector de carga, TruckListo es tu mejor opcion para enlistar tus camiones para el servicio</p>
-            <nav>
+            <nav className="home_page_buttons">
                 <button>
                     <Link style={{ textDecoration: 'none' }} to='/SignTruck'>
                         <h2> Inscribe tu camion aqui </h2> 
+                    </Link>
+                </button>
+                <button>
+                    <Link style={{ textDecoration: 'none' }} to='/HiredByYou'>
+                        <h2> Tus camiones contratados </h2> 
                     </Link>
                 </button>
             </nav>

@@ -13,16 +13,6 @@ export const TruckComponent = ( { children }) => {
         setTruckList((prev) => [...prev, object])
     }
     
-    // const hireTruck = (objectId) => {
-    //     let newHiredTruck = truckList.map((truck) => {
-    //         if ( truck.id == objectId) {
-    //             return { ...truck, hired: !truck.hired };
-    //             // return truck.hired = !truck.hired
-    //         }
-    //         return truck
-    //     })
-    //     setTruckList(newHiredTruck)
-    // }
     const hireTruck = (id) => {
         setTruckList((prev) =>
             prev.map((truck) =>
@@ -30,16 +20,36 @@ export const TruckComponent = ( { children }) => {
             )
         );
     }
+    
+    const edidTruckLoad = (id, amount) => {
+        setTruckList((prev) =>
+            prev.map((truck) =>
+                truck.id === id ? { ...truck, currentLoad: truck.currentLoad - amount} : truck
+            )
+        );
+    }
+
 
     return (
         <trucksContext.Provider
             value={{
                 truckList,
                 addTruck,
-                hireTruck
+                hireTruck,
+                edidTruckLoad
             }}
-        >
+            >
             { children }
         </trucksContext.Provider>
     )
 }
+            // const hireTruck = (objectId) => {
+            //     let newHiredTruck = truckList.map((truck) => {
+            //         if ( truck.id == objectId) {
+            //             return { ...truck, hired: !truck.hired };
+            //             // return truck.hired = !truck.hired
+            //         }
+            //         return truck
+            //     })
+            //     setTruckList(newHiredTruck)
+            // }

@@ -1,11 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+// Estados Globales
+import { TruckPageComponent } from './context/trucks_page_compo'
+import { TruckComponent } from './context/trucks_compo'
+
+// Components
 import { Home } from './components/homePage'
 import { LogIn } from './components/logIn'
 import { TruckSignUp } from './components/signTruck'
-import { TruckComponent } from './context/trucks_compo'
 import { HandleTruckPage } from './components/handleTruckPage'
-import { TruckPageComponent } from './context/trucks_page_compo'
+import { HandleHiredPage } from './components/handleHiredPage'
 
 import './App.css'
 
@@ -21,6 +25,7 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/IniciarSesion' element={<LogIn/>} />
             <Route path='/YourTruck/:id' element={<HandleTruckPage/>} />
+            <Route path='/HiredByYou' element={<HandleHiredPage/>}/>
           </Routes>
         </Router>
       </TruckPageComponent>
