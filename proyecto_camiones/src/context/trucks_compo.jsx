@@ -9,6 +9,14 @@ export const TruckComponent = ( { children }) => {
         { id: 'OWZ-777', capacity: 800, fuelConsumption: 4, currentLoad: 500, driver: 'Jose Fernandez', hired: false },
     ]);
 
+    // const [userList, setUserList] = useState([
+    //     {email: 'juan@gmail.com', password: 12345, admin: false },
+    //     {email: 'felipe@gmail.com', password: 12345, admin: false },
+    //     {email: 'albertp@gmail.com', password: 12345, admin: true },
+    //     {email: 'Mario@gmail.com', password: 12345, admin: true },
+    // ]);
+
+
     const addTruck = (object) => {
         setTruckList((prev) => [...prev, object])
     }
@@ -31,6 +39,16 @@ export const TruckComponent = ( { children }) => {
         );
     }
 
+    const deleteTruck = (id) => {
+        setTruckList((prev) =>
+            prev.map((truck) => 
+                truck.id == id
+                ? { ...truck, hired: false }
+                : truck
+            )
+        )
+    }
+
 
     return (
         <trucksContext.Provider
@@ -38,9 +56,9 @@ export const TruckComponent = ( { children }) => {
                 truckList,
                 addTruck,
                 hireTruck,
-                editTruckLoad
-            }}
-            >
+                editTruckLoad,
+                deleteTruck
+            }}>
             { children }
         </trucksContext.Provider>
     )

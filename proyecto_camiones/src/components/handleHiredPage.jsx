@@ -6,7 +6,7 @@ import { HiredTrucks } from "./SecondLevelComponents/hiredTrucks";
 
 export const HandleHiredPage = () => {
 
-    const { truckList, editTruckLoad } = useContext(trucksContext)
+    const { truckList, editTruckLoad, deleteTruck } = useContext(trucksContext)
     const [error, setError] = useState('')
 
     let hiredTrucksList = truckList.filter((truck) => (
@@ -18,12 +18,12 @@ export const HandleHiredPage = () => {
         if (e.key == 'Enter') {
             if (capacity >= e.target.value && e.target.value >= 0) {
                 await editTruckLoad(id, parseInt(e.target.value))
-                console.log(truckList)
             } else setError('Digita una cantidad valida')
         }
     }
-    const handleDelete = () => {
+    const handleDelete = (id) => {
         // funcion aun en progreso
+        deleteTruck(id)
     }
 
     return (
@@ -49,10 +49,10 @@ export const HandleHiredPage = () => {
                                 className="hiredTruck_input"
                                 onKeyDown={(e) => handleDischarge(e, truck.id, truck.capacity)}
                             />
-                            <button>Vaciar</button>
+                            {/* <button>Vaciar</button> */}
                         </div>
                     </article>
-                    <button onClick={handleDelete}>Eliminar de tu lista</button>
+                    <button onClick={() => handleDelete(truck.id)}>Eliminar de tu lista</button>
                 </article>
             ))}
         </>
