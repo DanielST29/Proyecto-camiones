@@ -22,7 +22,7 @@ export const TruckSignUp = () => {
     const [errors, setErrors] = useState('')
     const [success, setSuccess] = useState('')
 
-    const preTruck = {
+    const newTruck = {
         id: matricula,
         capacity: parseInt(capacidad),
         fuelConsumption: parseInt(cilindraje),
@@ -41,12 +41,11 @@ export const TruckSignUp = () => {
 
         if ( matricula && capacidad && cilindraje && carga && conductor){
             if ( carga <= capacidad ) {
-                if ( truckList.find((truck) => truck.id == preTruck.id)) {
+                if ( truckList.find((truck) => truck.id == newTruck.id)) {
                     setErrors('El camion digitado ya se encuentra registrado')
                 } else {
-                    
                     setSuccess('Camion exitosamente registrado!')
-                    await addTruck(preTruck)
+                    await addTruck(newTruck)
                     
                     setMatricula('')
                     setCapacidad('')

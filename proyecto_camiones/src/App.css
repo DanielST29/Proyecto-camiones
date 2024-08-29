@@ -47,6 +47,13 @@
   width: 100%;
   border-bottom: 3px solid chartreuse;
 }
+.separator_red{
+
+  margin: 2rem 0px;
+
+  width: 100%;
+  border-bottom: 3px solid rgb(225, 47, 47);
+}
 
 .description {
   margin: auto;
@@ -105,4 +112,31 @@ b {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.hiredTruck_display {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hiredTruck_input {
+  font-size: 14px;
+  border-radius: 20px;
+  width: 300px;
+  padding: 20px;
+  cursor: text;
+  transition: border-color 0.25s;
+  border: 1px solid transparent;
+}
+
+.hiredTruck_input :hover {
+  border: 1px solid chartreuse; 
+}
+
+.hiredTruck_editSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

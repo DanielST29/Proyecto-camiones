@@ -21,10 +21,12 @@ export const TruckComponent = ( { children }) => {
         );
     }
     
-    const edidTruckLoad = (id, amount) => {
+    const editTruckLoad = (id, newLoad) => {
         setTruckList((prev) =>
             prev.map((truck) =>
-                truck.id === id ? { ...truck, currentLoad: truck.currentLoad - amount} : truck
+                truck.id === id 
+                ? { ...truck, currentLoad: newLoad} 
+                : truck
             )
         );
     }
@@ -36,7 +38,7 @@ export const TruckComponent = ( { children }) => {
                 truckList,
                 addTruck,
                 hireTruck,
-                edidTruckLoad
+                editTruckLoad
             }}
             >
             { children }

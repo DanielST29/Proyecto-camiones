@@ -7,7 +7,7 @@ export const HiredTrucks = ({ id, capacity, fuelConsumption, currentLoad, driver
                 <p><b>Matricula:</b> {id} </p>
                 <p> <b>Capacidad:</b>  {capacity} Kg</p>
                 <p> <b>Consumo de gasolina:</b>  {fuelConsumption} Galones/Km</p>
-                <p> <b>Carga actual:</b> {currentLoad} Km</p>
+                <p> <b>Carga actual:</b> {currentLoad} Kg</p>
                 <p> <b>Chofer:</b> {driver}</p>
             </article>
         </>
