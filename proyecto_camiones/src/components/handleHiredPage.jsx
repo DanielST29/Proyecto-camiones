@@ -52,7 +52,7 @@ export const HandleHiredPage = () => {
                             {/* <button>Vaciar</button> */}
                         </div>
                     </article>
-                    <button onClick={() => handleDelete(truck.id)}>Eliminar de tu lista</button>
+                    <button onClick={() => handleDelete(truck.id)}>Cancelar servicio</button>
                 </article>
             ))}
         </>
