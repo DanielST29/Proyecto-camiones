@@ -37,22 +37,25 @@ export const TruckSignUp = () => {
         
         e.preventDefault()
 
+        // Inscripcion de camion parametrizada y controlada
+
         if ( matricula && capacidad && cilindraje && carga && conductor){
-
-            if ( truckList.find((truck) => truck.id == preTruck.id)) {
-                setErrors('El camion digitado ya se encuentra registrado')
-            } else {
-                
-                setSuccess('Camion exitosamente registrado!')
-                await addTruck(preTruck)
-                
-                setMatricula('')
-                setCapacidad('')
-                setCilindraje('')
-                setCarga('')
-                setConductor('')
-            }
-
+            if ( carga <= capacidad ) {
+                if ( truckList.find((truck) => truck.id == preTruck.id)) {
+                    setErrors('El camion digitado ya se encuentra registrado')
+                } else {
+                    
+                    setSuccess('Camion exitosamente registrado!')
+                    await addTruck(preTruck)
+                    
+                    setMatricula('')
+                    setCapacidad('')
+                    setCilindraje('')
+                    setCarga('')
+                    setConductor('')
+                    setErrors('')
+                }
+            } else setErrors('La carga no puede exceder la capacidad de tu camion')
         } else setErrors('Un campo no se ha completado!')
     }
     

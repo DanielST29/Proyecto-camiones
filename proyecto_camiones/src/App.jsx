@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Estados Globales
-import { TruckPageComponent } from './context/trucks_page_compo'
 import { TruckComponent } from './context/trucks_compo'
 
 // Components
@@ -18,7 +17,6 @@ function App() {
   return (
     <>
     <TruckComponent>
-      <TruckPageComponent>
         <Router>
           <Routes>
             <Route path='/SignTruck' element={<TruckSignUp/>}/>
@@ -28,7 +26,6 @@ function App() {
             <Route path='/HiredByYou' element={<HandleHiredPage/>}/>
           </Routes>
         </Router>
-      </TruckPageComponent>
     </TruckComponent>
     </>
   )
