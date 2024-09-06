@@ -19,11 +19,12 @@ function App() {
     <TruckComponent>
         <Router>
           <Routes>
-            <Route path='/SignTruck' element={<TruckSignUp/>}/>
             <Route path='/' element={<Home/>} />
+            <Route path='/SignTruck' element={<TruckSignUp/>}/>
             <Route path='/IniciarSesion' element={<LogIn/>} />
             <Route path='/YourTruck/:id' element={<HandleTruckPage/>} />
             <Route path='/HiredByYou' element={<HandleHiredPage/>}/>
+            <Route path='/LogIn' element={<LogIn/>} > </Route>
           </Routes>
         </Router>
     </TruckComponent>

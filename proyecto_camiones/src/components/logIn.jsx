@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export const LogIn = () =>{
 
@@ -13,15 +14,22 @@ export const LogIn = () =>{
     const [errors, setErrors] = useState('')
     const [success, setSuccess] = useState('')
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
 
+    const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(!userInput || !passwordInput) return setErrors('el campo usuario/passwordInput es obligatorio')
-        if(userInput.length < 9) return setErrors('tu usuario debe ser mayor a 8 caracteres')
-        if(passwordInput.length < 8) return setErrors('tu contrasena debe ser mayor a 8')
-        setErrors('')
-        setSuccess('tu formulario fue enviado')
+        let index
+
+        if (userInput && passwordInput) {
+            if (Usuarios.find((user, i) => user.user == userInput ? index = i : '')) {
+                if (passwordInput == Usuarios[index].password){
+                    setErrors('')
+                    setSuccess('tu formulario fue enviado')
+                    navigate('/')
+                } else setErrors('Contraseña incorrecta')
+            } else setErrors('El usuairo digitado no existe')
+        } else setErrors('el campo usuario y/o contraseña es obligatorio')
     }
 
     const handleUser = (e) => {
@@ -35,7 +43,7 @@ export const LogIn = () =>{
 
     return(
         <>
-            <h2>Soy el login</h2>
+            <h2>Iniciar sesion</h2>
 
             <form onSubmit={handleSubmit}>
                 <input 

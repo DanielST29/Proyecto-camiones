@@ -70,6 +70,15 @@
   align-items: center;
 }
 
+form {
+  border: chartreuse 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 3rem;
+}
+
 form input {
   font-size: 14px;
   border-radius: 20px;
